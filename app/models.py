@@ -10,12 +10,12 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(120))
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
-    def __init__(self, first_name, last_name, email, password, date_created):
+    def __init__(self, first_name, last_name, email, password):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
         self.password = password
-        self.date_created = date_created
+        self.date_created = datetime.utcnow()
 
 class CartItems(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)

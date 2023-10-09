@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form container col-4 align-self-center border border-dark rounded">
+    <h1 style="text-align: center;">Login</h1>
+    <form method="POST">
+        
+        {{ form.hidden_tag() }}
+
+        {{ form.email.label(class='form-label mt-3') }}
+        {{ form.email(class='form-control', placeholder='Enter email...') }}
+
+        {{ form.password.label(class='form-label mt-3') }}
+        {{ form.password(class='form-control', placeholder='Enter password...') }}
+
+        <div class="d-grid gap-2 my-3">
+            {{ form.submit(class='btn btn-primary border border-1 border-dark') }}
+        </div>
+    </form>
+</div>
+{% endblock %}

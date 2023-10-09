@@ -2,6 +2,11 @@ body {
     background-color: wheat;
 }
 
+.form {
+    margin-top: 100px;
+    background-color: white;
+}
+
 .hover-zoom-card {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }

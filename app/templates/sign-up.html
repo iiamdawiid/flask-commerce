@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form container col-4 align-self-center border border-dark rounded">
+    <h1 style="text-align: center;">Sign Up</h1>
+    <form method="POST">
+        <!-- <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div> -->
+        {{ form.hidden_tag() }}
+
+        {{ form.first_name.label(class='form-label mt-3') }}
+        {{ form.first_name(class='form-control', placeholder='First name...') }}
+
+        {{ form.last_name.label(class='form-label mt-2') }}
+        {{ form.last_name(class='form-control', placeholder='Last name...') }}
+
+        {{ form.email.label(class='form-label mt-2') }}
+        {{ form.email(class='form-control', placeholder='Email...') }}
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+        {{ form.password.label(class='form-label mt-2') }}
+        {{ form.password(class='form-control', placeholder='Password...') }}
+
+        {{ form.confirm_password.label(class='form-label mt-2') }}
+        {{ form.confirm_password(class='form-control', placeholder='Confirm Password...') }}
+
+        <!-- <button type="submit" class="btn btn-primary mb-3">Submit</button> -->
+        {{ form.submit(class='btn btn-primary border border-1 border-dark mt-3 mb-3') }}
+    </form>
+</div>
+{% endblock %}
