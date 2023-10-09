@@ -1,0 +1,28 @@
+body {
+    background-color: wheat;
+}
+
+.hover-zoom-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hover-zoom-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 35px 5px rgb(34, 255, 0);
+}
+
+.hover-zoom-nav:hover {
+    transform: scale(1.1); 
+}
+
+.sign-up {
+    transition: transform 0.3s ease;
+}
+
+.login {
+    transition: transform 0.3s ease;
+}
+
+.products {
+    transition: transform 0.3s ease;
+}
