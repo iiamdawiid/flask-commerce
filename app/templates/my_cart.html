@@ -40,7 +40,7 @@
             </div>
         <a class="btn btn-success mt-3 mb-3 border border-dark" href="/">Continue Shopping</a>
 {% else %}
-    <div style="background-color: rgb(229, 225, 225);" class="form container col-4 align-self-center border border-dark rounded">
+    <div style="background-color: rgb(229, 225, 225);" class="form container col-4 align-self-center border border-dark rounded empty-cart">
         <div style="text-align: center;">
             <h1>Your cart is empty!</h1>
             <h5>Add some items to your cart.</h5>
@@ -63,7 +63,7 @@
                             <input type="hidden" name="product_title" value="{{ product.title }}">
                             <input type="hidden" name="product_price" value="{{ product.price }}">
                             <input type="hidden" name="product_category" value="{{ product.category }}">
-                            <button type="submit" class="btn btn-primary border border-dark">Add To Cart</button>
+                            <button type="submit" class="btn btn-success border border-dark custom-btn">Add To Cart</button>
                         </form>
                     </div>
                 </div>
