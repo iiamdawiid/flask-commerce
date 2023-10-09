@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-4 border border border-2 border-dark rounded form">
+    <h2 style="text-align: center;">Edit Profile</h2>
+    <h6 style="text-align: center;">Change Email, Password, or Email + Password</h6>
+    <form method="POST">
+
+        {{ form.hidden_tag() }}
+
+        {{ form.email.label(class='form-label mt-3') }}
+        {{ form.email(class='form-control', placeholder='Email...') }}
+
+        {{ form.confirm_email.label(class='form-label mt-2') }}
+        {{ form.confirm_email(class='form-control', placeholder='Confirm Email...') }}
+
+        {{ form.password.label(class='form-label mt-2') }}
+        {{ form.password(class='form-control', placeholder='Password...') }}
+
+        {{ form.confirm_password.label(class='form-label mt-2') }}
+        {{ form.confirm_password(class='form-control', placeholder='Confirm Password...') }}
+
+        <div class="d-grid gap-2 mt-3 mb-3">
+            {{ form.submit(class='btn btn-primary border border-1 border-dark') }}
+        </div>
+
+        <!-- Button trigger modal -->
+        <div class="d-grid gap-2 my-3">
+            <button type="button" id="deleteAccountButton" class="btn btn-danger btn-primary border border-1 border-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete Profile</button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Are you sure you want to delete?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deleting your account will erase all data associated with it.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary border border-1 border-dark" data-bs-dismiss="modal">Close</button>    
+                <button type="submit" class="btn btn-danger border border-1 border-dark" formaction="/edit_profile" name="delete_account">Delete Account</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

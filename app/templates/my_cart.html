@@ -20,7 +20,7 @@
             <div class="row">
                 {% for item in cart_items %}
                     <div class="col-md-4 mt-4">
-                        <div style="border: 3px solid black; height: 300px; background-color: white;" class="product-card p-3 hover-zoom-card">
+                        <div style="border: 3px solid black; height: 300px; background-color: white;" class="product-card p-3 hover-zoom-card rounded">
                             <div>
                                 <img style="max-height: 100px;" src="{{ item.item_image }}" alt="{{ item.item_name }} Image">
                                 <h3 style="font-size: 18px;" class="mt-2">{{ item.item_name }}</h3>
@@ -40,7 +40,7 @@
             </div>
         <a class="btn btn-success mt-3 mb-3 border border-dark" href="/">Continue Shopping</a>
 {% else %}
-    <div style="background-color: rgb(229, 225, 225);" class="form container col-4 align-self-center border border-dark rounded empty-cart">
+    <div style="background-color: rgb(229, 225, 225);" class="form container col-4 align-self-center border border-2 border-dark rounded empty-cart rounded">
         <div style="text-align: center;">
             <h1>Your cart is empty!</h1>
             <h5>Add some items to your cart.</h5>
@@ -48,7 +48,7 @@
         <div class="row">
             {% for product in products[:3] %}
                 <div class="col-md-4 p-3">
-                    <div style="border: 3px solid black; height: 85%; background-color: white;" class="product-card p-3 hover-zoom-card">
+                    <div style="border: 1px solid black; height: 85%; background-color: white;" class="product-card p-3 hover-zoom-card rounded">
                         <div>
                             <img style="max-height: 100px; max-width: 100%;" src="{{ product.image }}" alt="{{ product.title }} Image">
                             <h3 style="font-size: 18px;" class="mt-2">{{ product.title }}</h3>

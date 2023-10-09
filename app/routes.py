@@ -16,6 +16,7 @@ def index():
         
     return render_template("index.html", products=products)
 
+
 @app.route("/sign-up", methods=['GET', 'POST'])
 def signup():
     form = SignUpForm()
@@ -71,6 +72,64 @@ def login():
     else:
         return render_template("login.html", form=form)
     
+
+@app.route('/edit_profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    form = EditProfileForm()
+    if request.method == 'POST':
+        if 'delete_account' in request.form:
+            deleted_user = User.query.get(current_user.id)
+            CartItems.query.filter_by(user_id=current_user.id).delete()
+            db.session.delete(deleted_user)
+            db.session.commit()
+
+            logout_user()
+            flash('Account has been deleted', 'danger')
+            return redirect(url_for('login'))
+        
+        elif form.validate():
+            new_email = form.email.data
+            new_password = form.password.data
+            
+            if new_email:
+                user_exists = User.query.filter_by(email=new_email).first()
+                if new_email != current_user.email and not user_exists:
+                    current_user.email = new_email
+                    db.session.commit()
+                    flash(f'Success! Email changed to: {new_email}', 'success')
+                    return redirect(url_for('edit_profile'))
+                elif form.email.data != form.confirm_email.data:
+                    flash('Emails do not match. Please try again', 'danger')
+                    return redirect(url_for('edit_profile'))
+                else:
+                    flash('Please choose a new email.', 'danger')
+                    return redirect(url_for('edit_profile'))
+
+            if new_password:
+                if form.password.data != form.confirm_password.data:
+                    flash('Passwords do not match. Please try again.', 'danger')
+                    return redirect(url_for('edit_profile'))
+                else:
+                    # retrieve the hashed password of the current user from the database
+                    user = User.query.get(current_user.id)
+
+                    if bcrypt.check_password_hash(user.password, form.password.data):
+                        flash('New password cannot be the same as the old password.', 'danger')
+                        return redirect(url_for('edit_profile'))
+                    else:
+                        # hash the new password and update it in the database
+                        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+                        user.password = hashed_password
+                        db.session.commit()
+                        flash('Password updated successfully.', 'success')
+                        return redirect(url_for('edit_profile'))
+        else:
+            flash('Passwords or Emails do not match. Please try again', 'danger')
+            return redirect(url_for('edit_profile'))
+        
+    return render_template('edit-profile.html', form=form)
+
 
 @app.route("/logout")
 @login_required
