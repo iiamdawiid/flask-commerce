@@ -1,5 +1,8 @@
 body {
-    background-color: wheat;
+    background-image: url('./bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .form {
@@ -30,4 +33,9 @@ body {
 
 .products {
     transition: transform 0.3s ease;
+}
+
+.empty-cart {
+    margin-left: 50px;
+    margin-top: 50px;
 }

@@ -19,12 +19,14 @@ class User(db.Model, UserMixin):
 
 class CartItems(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
+    item_image = db.Column(db.String(200))
     item_name = db.Column(db.String(100), index=True)
     category = db.Column(db.String(50), index=True)
-    price = db.Column(db.Integer, index=True)
+    price = db.Column(db.Numeric(precision=10, scale=2), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    def __init__(self, item_name, category, price, user_id):
+    def __init__(self, item_image, item_name, category, price, user_id):
+        self.item_image = item_image
         self.item_name = item_name
         self.category = category
         self.price = price
