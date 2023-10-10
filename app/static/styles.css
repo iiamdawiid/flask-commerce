@@ -11,6 +11,7 @@ body {
 }
 
 .hover-zoom-card {
+    box-shadow: 13px 13px 10px rgb(86, 86, 86);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
