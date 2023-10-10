@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Checked Out Items</h1>
+    
+    <div class="checkout-items">
+        
+        {% for item in cart_items %}
+            <div class="checkout-item">
+                <img src="{{ item.item_image }}" alt="{{ item.item_name }}" width="100">
+                <p>{{ item.item_name }}</p>
+                <p>Price: ${{ item.price }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

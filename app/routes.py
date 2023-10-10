@@ -194,3 +194,20 @@ def remove_from_cart():
             flash('Item not found.', 'success')
 
     return redirect(url_for('my_cart'))
+
+@app.route('/checkout', methods=['POST'])
+@login_required
+def checkout():
+    # Retrieve the user's cart items from your database (replace with your actual database query)
+    cart_items = CartItems.query.filter_by(user_id=current_user.id).all()
+
+    return render_template('checkout.html', cart_items=cart_items)
+
+@app.route('/clear_cart', methods=['POST'])
+@login_required
+def clear_cart():
+    user_id = current_user.id 
+    CartItems.query.filter_by(user_id=user_id).delete()
+    db.session.commit()
+    flash('Cart has been cleared.', 'success')
+    return redirect(url_for('my_cart'))

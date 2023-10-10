@@ -58,3 +58,17 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+
+.checkout-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Define a class for each checkout item */
+.checkout-item {
+    width: calc(33.33% - 10px); /* Adjust the width as needed */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}

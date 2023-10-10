@@ -26,9 +26,16 @@
     <div style="background-color: #212529;" class="row border border-dark mt-3">
         <div class="col-md-6">
             <a class="btn btn-primary mt-3 mb-3 border border-dark" href="/">Continue Shopping</a>
+            <form method="POST" action="/clear_cart">
+                <!-- <a class="btn btn-danger mt-3 mb-3 border border-dark" href="/my_cart">Clear Cart</a> -->
+                <button type="submit" class="btn btn-danger mt-3 mb-3 border border-dark">Clear Cart</button>
+            </form>
         </div>
         <div class="col-md-6 ml-auto text-right">
-            <a class="btn btn-success mt-3 mb-3 border border-dark" href="/checkout">Checkout Total: ${{ total }}</a>
+            <!-- <a class="btn btn-success mt-3 mb-3 border border-dark" href="/checkout">Checkout Total: ${{ total }}</a> -->
+            <form method="POST" action="/checkout">
+                <button type="submit" class="btn btn-success mt-3 mb-3 border border-dark">Checkout Total: ${{ total }}</button>
+            </form>
         </div>
     </div>
 {% else %}
