@@ -148,7 +148,11 @@ def my_cart():
         products = response.json()
     cart_items = CartItems.query.filter_by(user_id=current_user.id).all()
 
-    return render_template("my_cart.html", cart_items=cart_items, products=products)
+    total = 0
+    for item in cart_items:
+        total += item.price
+
+    return render_template("my_cart.html", cart_items=cart_items, products=products, total=total)
 
 
 @app.route("/add_to_cart", methods=['POST'])

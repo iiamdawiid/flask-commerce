@@ -5,7 +5,7 @@
         <div class="row">
             {% for product in products %}
                 <div class="col-md-4 mt-4">
-                    <div style="border: 3px solid black; height: 300px; background-color: rgb(255, 255, 255);" class="product-card p-3 hover-zoom-card rounded">
+                    <div style="border: 1px solid black; height: 300px; background-color: rgb(255, 255, 255);" class="product-card p-3 hover-zoom-card rounded">
                         <div>
                             <img style="max-height: 100px;" src="{{ product.image }}" alt="{{ product.title }} Image">
                             <h3 style="font-size: 18px;" class="mt-2">{{ product.title }}</h3>
@@ -20,7 +20,7 @@
                             <input type="hidden" name="product_title" value="{{ product.title }}">
                             <input type="hidden" name="product_price" value="{{ product.price }}">
                             <input type="hidden" name="product_category" value="{{ product.category }}">
-                            <button type="submit" class="btn btn-success border border-dark custom-btn">Add To Cart</button>
+                            <button type="submit" class="btn border border-dark custom-btn">Add To Cart</button>
                         </form>
                     </div>
                 </div>
