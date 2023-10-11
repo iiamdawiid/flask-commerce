@@ -16,7 +16,7 @@ body {
 }
 
 .hover-zoom-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: 0px 0px 20px 1px #fd1900;
 } */
 
@@ -65,9 +65,8 @@ body {
     justify-content: space-between;
 }
 
-/* Define a class for each checkout item */
 .checkout-item {
-    width: calc(33.33% - 10px); /* Adjust the width as needed */
+    width: calc(33.33% - 10px);
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 10px;
