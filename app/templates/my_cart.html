@@ -2,11 +2,11 @@
 
 {% block content %}
 {% if cart_items %}
-    <div style="border: 1px solid black;" class="container mx-auto mt-5 rounded cart-bg-img">
+    <div style="border: 1px solid black;" class="container mx-auto mt-5 mb-5 rounded cart-bg-img">
         <div class="row">
             {% for item in cart_items %}
                 <div class="col-md-4 mt-4">
-                    <div style="border: 1px solid black; height: 300px; background-color: white;" class="product-card p-3 hover-zoom-card rounded">
+                    <div style="border: 1px solid black; height: 300px; background-color: white;" class="p-3 hover-zoom-card rounded">
                         <div>
                             <img style="max-height: 100px;" src="{{ item.item_image }}" alt="{{ item.item_name }} Image">
                             <h3 style="font-size: 18px;" class="mt-2">{{ item.item_name }}</h3>
@@ -45,7 +45,7 @@
         <div class="row">
             {% for product in products[:3] %}
                 <div class="col-md-4 p-3">
-                    <div style="border: 1px solid black; height: 85%; background-color: white;" class="product-card p-3 hover-zoom-card rounded">
+                    <div style="border: 1px solid black; height: 85%; background-color: white;" class="p-3 hover-zoom-card rounded">
                         <div>
                             <img style="max-height: 100px; max-width: 100%;" src="{{ product.image }}" alt="{{ product.title }} Image">
                             <h3 style="font-size: 18px;" class="mt-2">{{ product.title }}</h3>

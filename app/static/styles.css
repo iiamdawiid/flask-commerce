@@ -62,12 +62,4 @@ body {
 .checkout-items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.checkout-item {
-    width: calc(33.33% - 10px);
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
 }

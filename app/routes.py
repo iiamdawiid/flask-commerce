@@ -156,6 +156,7 @@ def my_cart():
 
 
 @app.route("/add_to_cart", methods=['POST'])
+@login_required
 def add_to_cart():
     if current_user.is_authenticated:
         if request.method == 'POST':
@@ -195,13 +196,27 @@ def remove_from_cart():
 
     return redirect(url_for('my_cart'))
 
+
 @app.route('/checkout', methods=['POST'])
 @login_required
 def checkout():
     # Retrieve the user's cart items from your database (replace with your actual database query)
     cart_items = CartItems.query.filter_by(user_id=current_user.id).all()
+    total = 0
+    for item in cart_items:
+        total += item.price
+    
+    item_ids = [item.id for item in cart_items]
+    for item_id in item_ids:
+        item = CartItems.query.get(item_id)
+        if item and item.user_id == current_user.id:
+            db.session.delete(item)
+            db.session.commit()
+        else:
+            flash(f'{item.item_name} not found', 'danger')
 
-    return render_template('checkout.html', cart_items=cart_items)
+    return render_template('checkout.html', cart_items=cart_items, total=total)
+
 
 @app.route('/clear_cart', methods=['POST'])
 @login_required
