@@ -63,3 +63,7 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+
+.co-btn:hover {
+    background-color: #198754;
+}

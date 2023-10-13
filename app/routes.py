@@ -199,6 +199,7 @@ def remove_from_cart():
 @app.route('/checkout', methods=['POST'])
 @login_required
 def checkout():
+    flash('Thank you for your purchase!', 'success')
     # Retrieve the user's cart items from your database (replace with your actual database query)
     cart_items = CartItems.query.filter_by(user_id=current_user.id).all()
     total = 0
