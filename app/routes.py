@@ -160,7 +160,6 @@ def my_cart():
 def add_to_cart():
     if current_user.is_authenticated:
         if request.method == 'POST':
-            # product_id = request.form.get('product_id')
             product_image = request.form.get('product_image')
             product_title = request.form.get('product_title')
             product_price = request.form.get('product_price')
